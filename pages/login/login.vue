@@ -3,7 +3,7 @@
         <scroll-view scroll-y class="page">
             <view style="text-align: center;" :style="[{animation: 'show ' + 0.4+ 's 1'}]">
 				<image src="/static/login3.png" mode='aspectFit' class="zai-logo"></image>
-				<view class="zai-title">JEECG BOOT</view>
+				<view class="zai-title">Login</view>
 			</view>
             <view class="box padding-lr-xl login-paddingtop" :style="[{animation: 'show ' + 0.6+ 's 1'}]">
 
@@ -93,12 +93,13 @@
 			          password:this.password
 			        }
 					this.loading=true;
+					this.loading=false;
 			        this.mLogin(loginParams).then((res) => {
 					  console.log("mLogin",res)
 					  this.loading=false;
+					  this.$Router.replaceAll({name:'index'})
 			          if(res.data.success){
 						  this.$tip.success('登录成功!')
-						  this.$Router.replaceAll({name:'index'})
 						 /* uni.reLaunch({
 							url: '/pages/index/index'
 						  }); */
